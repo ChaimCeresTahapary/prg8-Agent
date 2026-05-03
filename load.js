@@ -11,7 +11,7 @@ const embeddings = new AzureOpenAIEmbeddings({
 const vectorStore = await FaissStore.load("./documents", embeddings);
 console.log("✅ vector store loaded!")
 
-// k staat voor de hoeveelheid resultaten die je wilt
+// Now you can use the vector store to answer questions about Beyond Good and Evil. For example:
 const prompt = "Who is Pey'j?"
 const model = new AzureChatOpenAI({ temperature: 0.2 });
 const relevantDocs = await vectorStore.similaritySearch(prompt);
